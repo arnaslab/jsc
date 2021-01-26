@@ -65,6 +65,11 @@
   margin: 5px;
 }
 
+.info-warpper {
+  display: flex;
+  align-items: flex-start;
+}
+
 .info-text {
   width: 70px;
   display: inline-block;
