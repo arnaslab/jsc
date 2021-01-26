@@ -26,8 +26,13 @@ export default function ContactModal(props) {
             <div><span className="info-text">Seluler</span><span>{item.cell}</span></div>
           </div>
           <div className="info-container">
-            <div><span className="info-text">Tempat Tinggal</span><span>{item.location.city}</span></div>
-            <div><span className="info-text">Koordinat</span><span>{item.localtion.coordinates.latitude}</span></div>
+            <div>
+              <span className="info-text">Tempat Tinggal</span>
+              <span>{item.location.street.number} {item.location.street.name} {item.location.city} {item.location.street} {item.location.postcode}</span>
+            </div>
+            <div>
+              <span className="info-text">Koordinat</span>
+              <span>{item.location.coordinates.latitude} {item.location.coordinates.langitude}</span></div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button
