@@ -11,12 +11,23 @@
  color: white; 
 }
 
+.dialog-header {
+  height: 50px;
+  width: '100%';
+}
+
 .button-add {
   color: white;
   background-color: #28a745;
   border: none;
   border-radius: 10px;
   height: 40px;
+}
+
+.modal {
+  width: 100vw;
+  position: absolute;
+  justify-content: center;
 }
 
 .contact-container {
@@ -28,5 +39,15 @@
   width: 300px;
   display: flex;
   align-items: center;
-  margin: 
+}
+
+#selected-contact-container {
+  padding: 20px 80px;
+}
+
+#selected-contact-item {
+  border: solid 1px black;
+  display: flex;
+  align-items: center;
+  margin: 10px;
 }

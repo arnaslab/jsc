@@ -21,32 +21,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ContactModal(props) {
   const classes = useStyles();
-  const { open, onClose, onAddContact } = props;
-  const [ contacts, setContacts ] = useState();
-  
-  useEffect(() => {
-    getContact()
-    .then(data => setContacts(data.results))
-  }, [])
-  
+  const { open, item = {} } = props;
+  console.log(item);
   return (
     <div
         className={classes.modal}
         style={ open ? { display: 'flex' } : { display: 'none' }}
     >
+    {open &&
       <div>
         <div className={classes.dialogHeader}>
-          <span>Pilih kontak</span>
+          <span>Kontak Detail</span>
         </div>
         <div className="contact-container">
-        {contacts && contacts.map(item => (
-          <div className="contact-item" onClick={() => onAddContact(item)}>
-            <img src={item.picture.thumbnail} />
-            <span>{item.name.first} {item.name.last}</span>
-          </div>
-        ))}
+          <img src={item.picture.large} />
+          <span>{item.name.first} {item.name.last}</span>
+          <span>Lahir {item.dob.date}</span>
+          <span>Jenis kelamin {item.gender === 'male' ? 'Laki-laki' : 'Perempuan'}</span>
+          <span>Surel {item.email}</span>
+          <button>Delete Contact</button>
         </div>
       </div>
+    }
     </div>
   );
 }
