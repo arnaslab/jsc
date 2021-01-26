@@ -1,26 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
+import Dialog from '@material-ui/core/Dialog';
 import { getContact } from './request';
 
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    width: '100vw',
-    position: 'absolute',
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  dialogHeader: {
-    height: 50,
-    width: '100%'
-  },
-  contactItem: {
-
-  }
-}));
-
 export default function ContactModal(props) {
-  const classes = useStyles();
   const { open, onClose, onAddContact } = props;
   const [ contacts, setContacts ] = useState();
   
@@ -30,13 +12,12 @@ export default function ContactModal(props) {
   }, [])
   
   return (
-    <div
-        className="modal"
-        style={ open ? { display: 'flex' } : { display: 'none' }}
-        onClick={onClose}
+    <Dialog
+        open={open}
+        onClose={onClose}
     >
       <div>
-        <div className={classes.dialogHeader}>
+        <div>
           <span>Pilih kontak</span>
         </div>
         <div className="contact-container">
@@ -48,6 +29,6 @@ export default function ContactModal(props) {
         ))}
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 }

@@ -1,38 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import { getContact } from './request';
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    width: '100vw',
-    position: 'absolute',
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  dialogHeader: {
-    height: 50,
-    width: '100%'
-  },
-  contactItem: {
-
-  }
-}));
+import React from 'react';
+import Dialog from '@material-ui/core/Dialog';
 
 export default function ContactModal(props) {
-  const classes = useStyles();
   const { open, item = {}, onDelete } = props;
-  console.log(item);
+  
   return (
-    <div
-        className={classes.modal}
-        style={ open ? { display: 'flex' } : { display: 'none' }}
+    <Dialog
+        open={open}
+        onClose={onClose}
     >
     {open &&
       <div>
-        <div className={classes.dialogHeader}>
-          <span>Kontak Detail</span>
-        </div>
         <div className="detail-container">
           <img src={item.picture.large} />
           <div><span>{item.name.first} {item.name.last}</span></div>
@@ -43,6 +21,6 @@ export default function ContactModal(props) {
         </div>
       </div>
     }
-    </div>
+    </Dialog>
   );
 }
