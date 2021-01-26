@@ -7,8 +7,12 @@
   padding: 10px;
 }
 
-.contact-container {
-  background-color: white;
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #bbbbbb;
 }
 
 .contact-item {
@@ -36,14 +40,6 @@
   display: flex;
   align-items: center;
   margin: 10px;
-}
-
-.dialog-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  border-bottom: 1px solid #bbbbbb;
 }
 
 .info-container {

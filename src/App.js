@@ -4,7 +4,7 @@ import ContactModal from './ContactModal';
 import ContactDetail from './ContactDetail';
 import Header from './Header';
 
-function App() {
+const App = () => {
 
   const [ modalOpen, setModalOpen ] = useState(false);
   const [ selectedContacts, setSelectedContacts ] = useState([]);
