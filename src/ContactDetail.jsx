@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 
 export default function ContactModal(props) {
-  const { open, item = {}, onDelete } = props;
+  const { open, onClose, item = {}, onDelete } = props;
   
   return (
     <Dialog
