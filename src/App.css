@@ -7,26 +7,6 @@
   padding: 10px;
 }
 
-.tittle {
- color: white; 
-}
-
-.button-add {
-  color: white;
-  background-color: #28a745;
-  border: none;
-  border-radius: 10px;
-  height: 40px;
-}
-
-.modal {
-  width: 100vw;
-  position: absolute;
-  justify-content: center;
-  background-color: #fafafaf2;
-  height: 100vh;
-}
-
 .contact-container {
   background-color: white;
 }
@@ -39,8 +19,16 @@
   margin: 10px;
 }
 
-.selected-contact-container {
-  padding: 20px 80px;
+@media screen and (min-width: 600px) {
+  .selected-contact-container {
+    padding: 20px 80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .selected-contact-container {
+    padding: 10px;
+  }
 }
 
 .selected-contact-item {
@@ -59,7 +47,7 @@
 }
 
 .info-container {
-  background-color: #bbbbbb;
+  background-color: #eeeeee;
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
@@ -71,6 +59,6 @@
 }
 
 .info-text {
-  width: 70px;
+  width: 80px;
   display: inline-block;
 }

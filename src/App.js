@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import ContactModal from './ContactModal';
 import ContactDetail from './ContactDetail';
+import Header from './Header';
 
 function App() {
 
@@ -27,15 +28,7 @@ function App() {
 
   return (
     <>
-      <div className="header">
-        <span className="tittle">Kelola Kontak</span>
-        <button 
-          className="button-add" 
-          onClick={() => setModalOpen(true)}
-        >
-          Tambah Kontak
-        </button>
-      </div>
+      <Header onModalOpen={() => setModalOpen(true)}/>
       <ContactModal 
         open={modalOpen} 
         onClose={() => setModalOpen(false)}
@@ -43,8 +36,8 @@ function App() {
       />
       <div className="selected-contact-container">
       {selectedContacts.map((item, key) => (
-        <div className="selected-contact-item" onClick={() => setDetail(key)}>
-          <img src={item.picture.thumbnail} />
+        <div key={key} className="selected-contact-item" onClick={() => setDetail(key)}>
+          <img src={item.picture.thumbnail} alt="contact-thumbnail" />
           <span style={{ marginLeft: 10 }}>{item.name.first} {item.name.last}</span>
         </div>
       ))}

@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Close from '@material-ui/icons/Close';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function ContactModal(props) {
   const { open, onClose, item = {}, onDelete } = props;
@@ -15,12 +15,12 @@ export default function ContactModal(props) {
     {open &&
       <div>
         <div className="dialog-header">
-          <span>Kontak Detail</span>
-          <Close onClick={onClose} />
+          <b>Kontak Detail</b>
+          <CloseIcon onClick={onClose} />
         </div>
         <img src={item.picture.large} style={{ width: '100%', height: '100%' }} />
         <div style={{ padding: 10 }}>
-          <span>{item.name.first} {item.name.last}</span>
+          <b>{item.name.first} {item.name.last}</b>
           <div className="info-container">
             <div className="info-warpper">
               <span className="info-text">Lahir</span><span>{item.dob.date}</span>
@@ -50,7 +50,13 @@ export default function ContactModal(props) {
               <span className="info-text">Koordinat</span>
               <span>{item.location.coordinates.latitude}, {item.location.coordinates.longitude}</span></div>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', borderTop: 'solid 1px #bbbbbb' }}>
+        </div>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'flex-end', 
+          borderTop: 'solid 1px #bbbbbb',
+          padding: 10 
+        }}>
             <Button
               variant="contained"
               onClick={onDelete}
@@ -60,7 +66,6 @@ export default function ContactModal(props) {
               Hapus Kontak
             </Button>
           </div>
-        </div>
       </div>
     }
     </Dialog>
