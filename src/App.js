@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ContactModal from './ContactModal';
+
 
 function App() {
+
+  const [ modalOpen, setModalOpen ] = useState(false);
+  const [ selectedContacts, setSelectedContacts ] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div className="header">
+        <span className="tittle">Kelola Kontak</span>
+        <button 
+          className="button-add" 
+          onClick={() => setModalOpen(true)}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Tambah Kontak
+        </button>
+      </div>
+      <ContactModal 
+        open={modalOpen} 
+        onClose={() => setModalOpen(false)}
+      />
+      <div>
+      {selectedContacts.map((item) => (
+        <div className="contact-item">
+          <img src={item.picture.thumbnail} />
+          <span>{item.name.first} {item.name.last}</span>
+        </div>
+      ))}
+      </div> 
+    </>
   );
 }
 
