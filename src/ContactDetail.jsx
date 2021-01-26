@@ -28,7 +28,7 @@ export default function ContactModal(props) {
           <div className="info-container">
             <div>
               <span className="info-text">Tempat Tinggal</span>
-              <span>{item.location.street.number} {item.location.street.name} {item.location.city} {item.location.street} {item.location.postcode}</span>
+              <span>{item.location.street.number} {item.location.street.name} {item.location.city} {item.location.state} {item.location.postcode}</span>
             </div>
             <div>
               <span className="info-text">Koordinat</span>
