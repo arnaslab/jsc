@@ -28,6 +28,8 @@
   width: 100vw;
   position: absolute;
   justify-content: center;
+  background-color: #fafafaf2;
+  height: 100vh;
 }
 
 .contact-container {

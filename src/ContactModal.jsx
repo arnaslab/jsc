@@ -31,8 +31,9 @@ export default function ContactModal(props) {
   
   return (
     <div
-        className={classes.modal}
+        className="modal"
         style={ open ? { display: 'flex' } : { display: 'none' }}
+        onClick={onClose}
     >
       <div>
         <div className={classes.dialogHeader}>
