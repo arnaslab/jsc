@@ -33,12 +33,12 @@ export default function ContactModal(props) {
         <div className={classes.dialogHeader}>
           <span>Kontak Detail</span>
         </div>
-        <div className="contact-container">
+        <div className="detail-container">
           <img src={item.picture.large} />
-          <span>{item.name.first} {item.name.last}</span>
-          <span>Lahir {item.dob.date}</span>
-          <span>Jenis kelamin {item.gender === 'male' ? 'Laki-laki' : 'Perempuan'}</span>
-          <span>Surel {item.email}</span>
+          <div><span>{item.name.first} {item.name.last}</span></div>
+          <div><span>Lahir {item.dob.date}</span></div>
+          <div><span>Jenis kelamin {item.gender === 'male' ? 'Laki-laki' : 'Perempuan'}</span></div>
+          <div><span>Surel {item.email}</span></div>
           <button>Delete Contact</button>
         </div>
       </div>
