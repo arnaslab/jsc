@@ -17,6 +17,14 @@ function App() {
     setModalOpen(false);
   }
 
+  const handleDeteleContact = (key) => {
+    setSelectedContacts([
+      ...selectedContacts.slice(0, key),
+      ...selectedContacts.slice(key+1, selectedContacts.length)
+    ])
+    setDetail(false);
+  }
+
   return (
     <>
       <div className="header">
@@ -34,17 +42,18 @@ function App() {
         onAddContact={handleAddContact}
       />
       <div id="selected-contact-container">
-      {selectedContacts.map((item) => (
-        <div id="selected-contact-item" onClick={() => setDetail(item)}>
+      {selectedContacts.map((item, key) => (
+        <div id="selected-contact-item" onClick={() => setDetail(key)}>
           <img src={item.picture.thumbnail} />
           <span>{item.name.first} {item.name.last}</span>
         </div>
       ))}
       </div> 
       <ContactDetail 
-        open={detail} 
-        item={detail}
+        open={typeof detail === 'number'} 
+        item={selectedContacts[detail]}
         onClose={() => setDetail(false)}
+        onDelete={() => handleDeteleContact(detail)}
       />
     </>
   );

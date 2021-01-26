@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ContactModal(props) {
   const classes = useStyles();
-  const { open, item = {} } = props;
+  const { open, item = {}, onDelete } = props;
   console.log(item);
   return (
     <div
@@ -39,7 +39,7 @@ export default function ContactModal(props) {
           <div><span>Lahir {item.dob.date}</span></div>
           <div><span>Jenis kelamin {item.gender === 'male' ? 'Laki-laki' : 'Perempuan'}</span></div>
           <div><span>Surel {item.email}</span></div>
-          <button>Delete Contact</button>
+          <button onClick={onDelete}>Delete Contact</button>
         </div>
       </div>
     }
