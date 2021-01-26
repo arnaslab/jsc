@@ -1,5 +1,7 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 export default function ContactModal(props) {
   const { open, onClose, item = {}, onDelete } = props;
@@ -11,13 +13,32 @@ export default function ContactModal(props) {
     >
     {open &&
       <div>
-        <div className="detail-container">
-          <img src={item.picture.large} />
-          <div><span>{item.name.first} {item.name.last}</span></div>
-          <div><span>Lahir {item.dob.date}</span></div>
-          <div><span>Jenis kelamin {item.gender === 'male' ? 'Laki-laki' : 'Perempuan'}</span></div>
-          <div><span>Surel {item.email}</span></div>
-          <button onClick={onDelete}>Delete Contact</button>
+        <img src={item.picture.large} style={{ width: '100%', height: '100%' }} />
+        <div style={{ padding: 10 }}>
+          <span>{item.name.first} {item.name.last}</span>
+          <div className="info-container">
+            <div><span className="info-text">Lahir</span><span>{item.dob.date}</span></div>
+            <div><span className="info-text">Jenis kelamin</span><span>{item.gender === 'male' ? 'Laki-laki' : 'Perempuan'}</span></div>
+          </div>
+          <div className="info-container">
+            <div><span className="info-text">Surel</span><span>{item.email}</span></div>
+            <div><span className="info-text">Telepon</span><span>{item.phone}</span></div>
+            <div><span className="info-text">Seluler</span><span>{item.cell}</span></div>
+          </div>
+          <div className="info-container">
+            <div><span className="info-text">Tempat Tinggal</span><span>{item.location.city}</span></div>
+            <div><span className="info-text">Koordinat</span><span>{item.localtion.coordinates.latitude}</span></div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Button
+              variant="contained"
+              onClick={onDelete}
+              startIcon={<DeleteIcon />}
+              style={{ backgroundColor: '#da3847', color: '#ffffff' }}
+            >
+              Hapus Kontak
+            </Button>
+          </div>
         </div>
       </div>
     }

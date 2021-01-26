@@ -41,11 +41,11 @@ function App() {
         onClose={() => setModalOpen(false)}
         onAddContact={handleAddContact}
       />
-      <div id="selected-contact-container">
+      <div className="selected-contact-container">
       {selectedContacts.map((item, key) => (
-        <div id="selected-contact-item" onClick={() => setDetail(key)}>
+        <div className="selected-contact-item" onClick={() => setDetail(key)}>
           <img src={item.picture.thumbnail} />
-          <span>{item.name.first} {item.name.last}</span>
+          <span style={{ marginLeft: 10 }}>{item.name.first} {item.name.last}</span>
         </div>
       ))}
       </div> 

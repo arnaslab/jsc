@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import { getContact } from './request';
+import Close from '@material-ui/icons/Close';
 
 export default function ContactModal(props) {
   const { open, onClose, onAddContact } = props;
@@ -9,22 +10,23 @@ export default function ContactModal(props) {
   useEffect(() => {
     getContact()
     .then(data => setContacts(data.results))
-  }, [])
-  
+  }, [open])
+
   return (
     <Dialog
         open={open}
         onClose={onClose}
     >
       <div>
-        <div>
+        <div className="dialog-header">
           <span>Pilih kontak</span>
+          <Close onClick={onClose} />
         </div>
         <div className="contact-container">
         {contacts && contacts.map(item => (
           <div className="contact-item" onClick={() => onAddContact(item)}>
             <img src={item.picture.thumbnail} />
-            <span>{item.name.first} {item.name.last}</span>
+            <span style={{ marginLeft: 10 }}>{item.name.first} {item.name.last}</span>
           </div>
         ))}
         </div>
